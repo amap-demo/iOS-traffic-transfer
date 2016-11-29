@@ -10,11 +10,14 @@
 #import "RoutePathDetailTableViewCell.h"
 #import <AMapSearchKit/AMapSearchKit.h>
 
+
+static const NSString *RoutePathDetailStepInfoImageName = @"RoutePathDetailStepInfoImageName";
+static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoText";
+
 @interface RoutePathDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 //data
 @property (strong, nonatomic) NSMutableArray *routeDetailDataArray;  //路径步骤数组
-@property (copy, nonatomic) NSDictionary *drivingImageDic;  //根据AMapStep.action获得对应的图片名字
 
 //xib views
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,26 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.drivingImageDic = @{
-                         @"开始":@"start",
-                         @"结束":@"end",
-                         @"右转":@"right",
-                         @"左转":@"left",
-                         @"直行":@"straight",
-                         @"向右前方行驶":@"rightFront",
-                         @"向左前方行驶":@"leftFront",
-                         @"向左后方行驶":@"leftRear",
-                         @"向右后方行驶":@"rightRear",
-                         @"左转调头":@"leftRear",
-                         @"靠左":@"leftFront",
-                         @"靠右":@"rightFront",
-                         @"进入环岛":@"straight",
-                         @"离开环岛":@"straight",
-                         @"减速行驶":@"dottedStraight",
-                         @"插入直行":@"straight",
-                         @"":@"straight",
-                         };
     
     [self setUpViews];
     
@@ -67,37 +50,32 @@
     self.taxiCostInfoLabel.text = [NSString stringWithFormat:@"打车约%.0f元",self.route.taxiCost];
     
     self.routeDetailDataArray = @[].mutableCopy;
-    
-    AMapSegment *startStep = [AMapSegment new];
-//    startStep.action = @"开始"; //导航主要动作，用来标示图标
-//    startStep.instruction = @"开始";  //行走指示
-    
-    AMapSegment *endStep = [AMapSegment new];
-//    endStep.action = @"结束";
-//    endStep.instruction = @"抵达";
-    
+    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"start",RoutePathDetailStepInfoText : @"开始出发"}];
+
     for (AMapSegment *segment in self.transit.segments) {
         AMapRailway *railway = segment.railway; //火车
         AMapBusLine *busline = [segment.buslines firstObject];  // 地铁或者公交线路
-        AMapWalking *walking =segment.walking;
-        NSLog(@"%ld,%@",(long)walking.distance,busline.name);
+        AMapWalking *walking = segment.walking;  //搭乘地铁或者公交前的走路信息
         
         if (walking.distance) {
             NSString *walkInfo = [NSString stringWithFormat:@"步行%u米",(unsigned)walking.distance];
-            [self.routeDetailDataArray addObject:walkInfo];
+            [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"walkRoute",RoutePathDetailStepInfoText : walkInfo}];
         }
         
         if (busline.name) {
-            [self.routeDetailDataArray addObject:busline.name];
+            NSString *busImageName = @"busRoute";
+            if ([busline.type isEqualToString:@"地铁线路"]) {
+                busImageName = @"underGround";
+            }
+            NSString *busInfoText = [NSString stringWithFormat:@"%@  途经%u站",busline.name,(unsigned)(busline.viaBusStops.count + 1)];
+            [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : busImageName,RoutePathDetailStepInfoText : busInfoText}];
+            
         } else if (railway.uid) {
-            [self.routeDetailDataArray addObject:railway.name];
+            [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"railwayRoute",RoutePathDetailStepInfoText : railway.name}];
         }
     }
     
-   
-//    [self.routeDetailDataArray addObject:startStep];
-//    [self.routeDetailDataArray addObjectsFromArray:self.transit.];
-//    [self.routeDetailDataArray addObject:endStep];
+    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"end",RoutePathDetailStepInfoText : @"到达终点"}];
 
 }
 
@@ -111,10 +89,10 @@
     
     RoutePathDetailTableViewCell *cell = (RoutePathDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier:RoutePathDetailTableViewCellIdentifier forIndexPath:indexPath];
     
-    NSString *stepInfo = [self.routeDetailDataArray objectAtIndex:indexPath.row];
+    NSDictionary *stepInfo = [self.routeDetailDataArray objectAtIndex:indexPath.row];
     
-    cell.infoLabel.text = stepInfo;
-//    cell.actionImageView.image = [UIImage imageNamed:[self.drivingImageDic objectForKey:step.action]];
+    cell.infoLabel.text = stepInfo[RoutePathDetailStepInfoText];
+    cell.actionImageView.image = [UIImage imageNamed:stepInfo[RoutePathDetailStepInfoImageName]];
     
     cell.topVerticalLine.hidden = indexPath.row == 0;
     cell.bottomVerticalLine.hidden = indexPath.row == self.routeDetailDataArray.count - 1;
