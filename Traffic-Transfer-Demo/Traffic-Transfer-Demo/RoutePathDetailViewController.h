@@ -13,6 +13,6 @@
 @interface RoutePathDetailViewController : UIViewController
 
 @property (strong, nonatomic) AMapRoute *route;
-@property (strong, nonatomic) AMapTransit *transit;
+@property (strong, nonatomic) AMapTransit *transit;  //公交换乘方案的详细信息
 
 @end

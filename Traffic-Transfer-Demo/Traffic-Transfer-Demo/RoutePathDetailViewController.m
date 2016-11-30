@@ -33,16 +33,17 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpViews];
+    self.tableView.tableHeaderView = self.headerView;
+    [self.tableView registerNib:[UINib nibWithNibName:@"RoutePathDetailTableViewCell" bundle:nil] forCellReuseIdentifier:RoutePathDetailTableViewCellIdentifier];
+    self.tableView.rowHeight = 54;
+    
+    [self setUpViewsWithData];
     
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)setUpViews {
-    
-    self.tableView.tableHeaderView = self.headerView;
-    [self.tableView registerNib:[UINib nibWithNibName:@"RoutePathDetailTableViewCell" bundle:nil] forCellReuseIdentifier:RoutePathDetailTableViewCellIdentifier];
-    self.tableView.rowHeight = 54;
+//根据transit的具体字段，显示信息
+- (void)setUpViewsWithData {
     
     NSInteger hours = self.transit.duration / 3600;
     NSInteger minutes = (NSInteger)(self.transit.duration / 60) % 60;
@@ -50,7 +51,7 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
     self.taxiCostInfoLabel.text = [NSString stringWithFormat:@"打车约%.0f元",self.route.taxiCost];
     
     self.routeDetailDataArray = @[].mutableCopy;
-    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"start",RoutePathDetailStepInfoText : @"开始出发"}];
+    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"start",RoutePathDetailStepInfoText : @"开始出发"}]; // 图片的名字，具体步骤的文字信息
 
     for (AMapSegment *segment in self.transit.segments) {
         AMapRailway *railway = segment.railway; //火车
@@ -67,7 +68,6 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
             if ([busline.type isEqualToString:@"地铁线路"]) { //区分公交和地铁
                 busImageName = @"underGround";
             }
-            
             
             //viaBusStops途径的公交车站的数组，如需具体站名，可解析。
             NSString *busInfoText = [NSString stringWithFormat:@"乘坐%@，在 %@ 上车，途经 %u 站，在 %@ 下车",busline.name,busline.departureStop.name,(unsigned)(busline.viaBusStops.count + 1),busline.arrivalStop.name];

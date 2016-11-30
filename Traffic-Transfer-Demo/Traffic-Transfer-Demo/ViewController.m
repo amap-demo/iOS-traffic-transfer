@@ -124,7 +124,7 @@ static const NSString *RoutePlanningViewControllerDestinationTitle = @"终点";
 //公交路线开始规划
 - (void)searchRoutePlanningBus {
     
-    AMapTransitRouteSearchRequest *navi = [[AMapTransitRouteSearchRequest alloc] init];
+    AMapTransitRouteSearchRequest *navi = [[AMapTransitRouteSearchRequest alloc] init];  //公交路径规划请求
     navi.requireExtension = YES;
     navi.city = @"beijing";  //指定城市，必填
     
@@ -158,9 +158,9 @@ static const NSString *RoutePlanningViewControllerDestinationTitle = @"终点";
     self.currentRouteIndex = 0;
     self.routeArray = self.route.transits;  //给公交换乘方案作为collectionView的数据源
     
+    //处理view
     [self.collectionView setContentOffset:CGPointMake(0, 0)];
     [self.collectionView reloadData];
-
     self.pageControl.hidden = NO;
     self.pageControl.numberOfPages = self.routeArray.count;
     self.pageControl.currentPage = self.currentRouteIndex;
@@ -181,7 +181,7 @@ static const NSString *RoutePlanningViewControllerDestinationTitle = @"终点";
     
     AMapGeoPoint *endPoint = [AMapGeoPoint locationWithLatitude:self.destinationAnnotation.coordinate.latitude longitude:self.destinationAnnotation.coordinate.longitude];  //终点
     
-    //根据已经规划的路径，起点，终点，生成显示方案
+    //根据已经规划的换乘方案，起点，终点，生成显示方案
     self.naviRoute = [MANaviRoute naviRouteForTransit:self.route.transits[self.currentRouteIndex] startPoint:startPoint endPoint:endPoint];
     
     [self.naviRoute addToMapView:self.mapView];  //显示到地图上
@@ -189,9 +189,7 @@ static const NSString *RoutePlanningViewControllerDestinationTitle = @"终点";
     UIEdgeInsets edgePaddingRect = UIEdgeInsetsMake(RoutePlanningPaddingEdge, RoutePlanningPaddingEdge, RoutePlanningPaddingEdge, RoutePlanningPaddingEdge);
     
     //缩放地图使其适应polylines的展示
-    [self.mapView setVisibleMapRect:[CommonUtility mapRectForOverlays:self.naviRoute.routePolylines]
-                        edgePadding:edgePaddingRect
-                           animated:YES];
+    [self.mapView setVisibleMapRect:[CommonUtility mapRectForOverlays:self.naviRoute.routePolylines] edgePadding:edgePaddingRect animated:YES];
 }
 
 #pragma mark - MAMapViewDelegate
