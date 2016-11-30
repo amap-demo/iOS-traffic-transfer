@@ -24,11 +24,11 @@
     // Initialization code
 }
 
-- (void)configureWithTransit:(AMapTransit *)transit{
+- (void)configureWithTransit:(AMapTransit *)transit {
     
     NSMutableArray *buslineArray = @[].mutableCopy;
     for (AMapSegment *segment in transit.segments) {
-        AMapRailway *railway = segment.railway; //火车
+        AMapRailway *railway = segment.railway; //火车,一个城市内的不会出现火车。
         AMapBusLine *busline = [segment.buslines firstObject];  // 地铁或者公交线路
         if (busline.name) {
             [buslineArray addObject:busline.name];

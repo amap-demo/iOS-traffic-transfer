@@ -298,7 +298,7 @@ static const NSString *RoutePlanningViewControllerDestinationTitle = @"终点";
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.collectionView) {
         NSUInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
-        if (self.currentRouteIndex != index) {
+        if (self.currentRouteIndex != index) {  //翻页的时候更新路径
             self.currentRouteIndex = index;
             self.pageControl.currentPage = self.currentRouteIndex;
             [self presentCurrentRouteCourse];

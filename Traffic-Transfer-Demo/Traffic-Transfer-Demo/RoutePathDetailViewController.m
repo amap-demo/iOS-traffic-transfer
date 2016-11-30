@@ -55,7 +55,7 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
     for (AMapSegment *segment in self.transit.segments) {
         AMapRailway *railway = segment.railway; //火车
         AMapBusLine *busline = [segment.buslines firstObject];  // 地铁或者公交线路
-        AMapWalking *walking = segment.walking;  //搭乘地铁或者公交前的走路信息
+        AMapWalking *walking = segment.walking;  //搭乘地铁或者公交前的步行信息
         
         if (walking.distance) {
             NSString *walkInfo = [NSString stringWithFormat:@"步行%u米",(unsigned)walking.distance];
@@ -64,10 +64,13 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
         
         if (busline.name) {
             NSString *busImageName = @"busRoute";
-            if ([busline.type isEqualToString:@"地铁线路"]) {
+            if ([busline.type isEqualToString:@"地铁线路"]) { //区分公交和地铁
                 busImageName = @"underGround";
             }
-            NSString *busInfoText = [NSString stringWithFormat:@"%@  途经%u站",busline.name,(unsigned)(busline.viaBusStops.count + 1)];
+            
+            
+            //viaBusStops途径的公交车站的数组，如需具体站名，可解析。
+            NSString *busInfoText = [NSString stringWithFormat:@"乘坐%@，在 %@ 上车，途经 %u 站，在 %@ 下车",busline.name,busline.departureStop.name,(unsigned)(busline.viaBusStops.count + 1),busline.arrivalStop.name];
             [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : busImageName,RoutePathDetailStepInfoText : busInfoText}];
             
         } else if (railway.uid) {
@@ -75,7 +78,7 @@ static const NSString *RoutePathDetailStepInfoText = @"RoutePathDetailStepInfoTe
         }
     }
     
-    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"end",RoutePathDetailStepInfoText : @"到达终点"}];
+    [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"end",RoutePathDetailStepInfoText : @"抵达终点"}];
 
 }
 
