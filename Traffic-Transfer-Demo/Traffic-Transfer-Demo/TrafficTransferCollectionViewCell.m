@@ -40,7 +40,7 @@
     
     NSInteger hours = transit.duration / 3600;
     NSInteger minutes = (NSInteger)(transit.duration / 60) % 60;
-    self.otherInfoLabel.text = [NSString stringWithFormat:@"%u小时%u分钟 | %u公里 | 步行%.1f公里",(unsigned)hours,(unsigned)minutes,(unsigned)transit.distance / 1000,transit.walkingDistance / 1000.0];
+    self.otherInfoLabel.text = [NSString stringWithFormat:@"%u小时%u分钟 | %u公里 | %.0f元 | 步行%.1f公里",(unsigned)hours,(unsigned)minutes,(unsigned)transit.distance / 1000, transit.cost,transit.walkingDistance / 1000.0];
 }
 
 
