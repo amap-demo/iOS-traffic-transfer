@@ -15,9 +15,9 @@
 
 ## demo运行效果图 ##
 
-![Screenshot](./Traffic-Transfer-Demo/ScreenShots/screenshot0.jpeg)
-![Screenshot](./Traffic-Transfer-Demo/ScreenShots/screenshot1.jpeg)
-![Screenshot](./Traffic-Transfer-Demo/ScreenShots/screenshot2.jpeg)
+![Screenshot](./ScreenShots/screenshot0.jpeg)
+![Screenshot](./ScreenShots/screenshot1.jpeg)
+![Screenshot](./ScreenShots/screenshot2.jpeg)
 
 ## 核心类／接口 ##
 
