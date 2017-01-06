@@ -15,8 +15,8 @@
 
 #pragma mark - AMapSearchObject
 
-/// 搜索SDK基础类
-@interface AMapSearchObject : NSObject
+/// 搜索SDK基础类, 通用数据结构和response支持copy和coding（since 4.4.1）。
+@interface AMapSearchObject : NSObject<NSCopying, NSCoding>
 
 /// 返回格式化的描述信息。通用数据结构和response类型有效。
 - (NSString *)formattedDescription;
@@ -26,7 +26,7 @@
 #pragma mark - 通用数据结构
 
 /// 经纬度
-@interface AMapGeoPoint : AMapSearchObject<NSCopying>
+@interface AMapGeoPoint : AMapSearchObject
 
 @property (nonatomic, assign) CGFloat latitude; //!< 纬度（垂直方向）
 @property (nonatomic, assign) CGFloat longitude; //!< 经度（水平方向）
@@ -39,7 +39,7 @@
  * 多边形
  * 当传入两个点的时候，当做矩形处理:左下-右上两个顶点；其他情况视为多边形，几个点即为几边型。
  */
-@interface AMapGeoPolygon : AMapSearchObject<NSCopying>
+@interface AMapGeoPolygon : AMapSearchObject
 
 @property (nonatomic, strong) NSArray<AMapGeoPoint *> *points; //!< 坐标集, AMapGeoPoint 数组
 
@@ -167,11 +167,10 @@
 @property (nonatomic, copy)   NSString     *businessArea; //!< 所在商圈
 @property (nonatomic, strong) AMapIndoorData *indoorData; //!< 室内信息
 @property (nonatomic, strong) NSArray<AMapSubPOI *> *subPOIs; //!< 子POI列表
-
-// 以下信息只有在ID查询时有效
 @property (nonatomic, strong) NSArray<AMapImage *> *images; //!< 图片列表
-@property (nonatomic, strong) AMapPOIExtension *extensionInfo; //!< 扩展信息
 
+// 扩展信息只有在ID查询时有效
+@property (nonatomic, strong) AMapPOIExtension *extensionInfo; //!< 扩展信息
 
 @end
 

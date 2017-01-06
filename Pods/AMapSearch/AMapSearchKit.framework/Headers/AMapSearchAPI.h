@@ -263,7 +263,7 @@ typedef NS_ENUM(NSInteger, AMapSearchLanguage)
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response;
 
 /**
- *  沿途查询回调函数 (v4.3.0)
+ *  沿途查询回调函数 (since v4.3.0)
  *
  *  @param request  发起的请求，具体字段参考 AMapRoutePOISearchRequest 及其子类。
  *  @param response 响应结果，具体字段参考 AMapRoutePOISearchResponse 。

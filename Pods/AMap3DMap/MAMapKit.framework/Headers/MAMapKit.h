@@ -3,7 +3,7 @@
 //  MAMapKit
 //
 //  Created by 翁乐 on 12/2/15.
-//  Copyright © 2015 le.weng. All rights reserved.
+//  Copyright © 2015 Amap. All rights reserved.
 //
 
 #import <MAMapKit/MAConfig.h>
@@ -14,6 +14,7 @@
 #import <MAMapKit/MAAnnotation.h>
 #import <MAMapKit/MAAnnotationView.h>
 #import <MAMapKit/MAPointAnnotation.h>
+#import <MAMapKit/MAAnimatedAnnotation.h>
 #import <MAMapKit/MAPinAnnotationView.h>
 #import <MAMapKit/MAUserlocation.h>
 #import <MAMapKit/MAOverlay.h>

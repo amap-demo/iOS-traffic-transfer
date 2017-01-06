@@ -29,6 +29,8 @@
 
 ## 核心难点 ##
 
+`Objective-C`
+
 ```
 //在地图上显示当前选择的路径
 - (void)presentCurrentRouteCourse {
@@ -94,6 +96,81 @@
     [self.routeDetailDataArray addObject:@{RoutePathDetailStepInfoImageName : @"end",RoutePathDetailStepInfoText : @"抵达终点"}];
 
 }
+
+```
+
+`Swift`
+
+```
+
+//在地图上显示当前选择的路径
+func presentCurrentRouteCourse() {
+
+    if self.routeArray.count <= 0 {
+        return
+    }
+
+    self.naviRoute?.removeFromMapView() //清空地图上已有的路线
+
+    let startPoint = AMapGeoPoint.location(withLatitude: CGFloat(self.startAnnotation.coordinate.latitude), longitude: CGFloat(self.startAnnotation.coordinate.longitude)) //起点
+
+    let endPoint = AMapGeoPoint.location(withLatitude: CGFloat(self.destinationAnnotation.coordinate.latitude), longitude: CGFloat(self.destinationAnnotation.coordinate.longitude))  //终点
+
+    //根据已经规划的路径，起点，终点，规划类型，是否显示实时路况，生成显示方案
+    self.naviRoute = MANaviRoute(for: self.route.transits[self.currentRouteIndex], start: startPoint, end: endPoint)
+    self.naviRoute?.add(to: self.mapView)
+
+    //显示到地图上
+    let edgePaddingRect = UIEdgeInsetsMake(RoutePlanningPaddingEdge, RoutePlanningPaddingEdge, RoutePlanningPaddingEdge, RoutePlanningPaddingEdge)
+
+    //缩放地图使其适应polylines的展示
+    self.mapView.setVisibleMapRect(CommonUtility.mapRect(forOverlays: self.naviRoute?.routePolylines), edgePadding: edgePaddingRect, animated: true)
+}
+
+//根据transit的具体字段，显示信息
+func setUpViewsWithData() {
+
+    let hours = self.transit!.duration / 3600
+    let minutes = Int(self.transit!.duration / 60) % 60
+    self.timeInfoLabel.text = "\(UInt(hours))小时\(UInt(minutes))分钟（\(UInt(self.transit!.distance) / 1000)公里）"
+    self.taxiCostInfoLabel.text = String(format: "打车约%.0f元", self.route.taxiCost)
+
+    self.routeDetailDataArray = []
+
+    self.routeDetailDataArray.add([RoutePathDetailStepInfoImageName : "start", RoutePathDetailStepInfoText : "开始出发"])
+
+    for segment: AMapSegment in self.transit.segments as Array {
+
+        if segment.walking != nil {
+            let walkInfo = "步行\(segment.walking.distance)米"
+            self.routeDetailDataArray.add([RoutePathDetailStepInfoImageName : "walkRoute", RoutePathDetailStepInfoText : walkInfo])
+        }
+
+        if (segment.buslines.first?.name != nil) {
+
+            let busline: AMapBusLine = segment.buslines.first!
+
+            var busImageName = "busRoute"
+            if busline.type == "地铁线路" { //区分公交和地铁
+                busImageName = "underGround"
+            }
+
+            //viaBusStops途径的公交车站的数组，如需具体站名，可解析。
+            let busInfoText = String(format: "乘坐%@，在 %@ 上车，途经 %u 站，在 %@ 下车", busline.name,busline.departureStop.name,busline.viaBusStops.count + 1,busline.arrivalStop.name)
+
+            self.routeDetailDataArray.add([RoutePathDetailStepInfoImageName : busImageName, RoutePathDetailStepInfoText : busInfoText])
+
+        } else if segment.railway.uid != nil {
+            self.routeDetailDataArray.add([RoutePathDetailStepInfoImageName : "railwayRoute", RoutePathDetailStepInfoText : segment.railway.name])
+        }
+
+    }
+
+    self.routeDetailDataArray.add([RoutePathDetailStepInfoImageName : "end", RoutePathDetailStepInfoText : "抵达终点"])
+
+}
+
+
 
 ```
 

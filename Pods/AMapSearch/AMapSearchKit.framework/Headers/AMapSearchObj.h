@@ -291,8 +291,6 @@ typedef NS_ENUM(NSInteger, AMapRoutePOISearchType)
 @property (nonatomic, assign) NSInteger type; //!< 路径方案类型([default = 0])0-推荐路线及最快路线综合, 1-推荐路线, 2-最快路线
 @end
 
-#pragma mark - AMapRouteSearchResponse
-
 /// 路径规划返回
 @interface AMapRouteSearchResponse : AMapSearchObject
 
@@ -478,8 +476,6 @@ typedef NS_ENUM(NSInteger, AMapCloudSortType)
 @property (nonatomic, copy) NSString *city; //!< 必填,POI所在城市
 
 @end
-
-#pragma mark - AMapCloudPOISearchResponse
 
 /// 云图搜索返回
 @interface AMapCloudPOISearchResponse : AMapSearchObject

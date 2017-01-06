@@ -6,12 +6,13 @@
 //  Copyright © 2016 AutoNavi. All rights reserved.
 //
 
+#import "MAConfig.h"
 #import <AMapFoundationKit/AMapFoundationVersion.h>
 
 #ifndef MAMapVersion_h
 #define MAMapVersion_h
 
-#define MAMapVersionNumber                40401
+#define MAMapVersionNumber                40600
 
 #define MAMapMinRequiredFoundationVersion 10301
 
