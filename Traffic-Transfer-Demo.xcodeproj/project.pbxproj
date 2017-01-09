@@ -195,7 +195,18 @@
 		D971B67E1E1F492C00F726EF /* MANaviRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D923A6071DED784C00EA75E9 /* MANaviRoute.m */; };
 		D971B6811E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971B67F1E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.swift */; };
 		D971B6821E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D971B6801E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.xib */; };
+		D971B6F01E2385D200F726EF /* Traffic_Transfer_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D971B6EF1E2385D200F726EF /* Traffic_Transfer_DemoUITests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D971B6F21E2385D200F726EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D923A5DC1DED67BE00EA75E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D923A5E31DED67BE00EA75E9;
+			remoteInfo = "Traffic-Transfer-Demo";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		26D1BF36F27FA3E17A97D849 /* libPods-Traffic-Transfer-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Traffic-Transfer-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +336,9 @@
 		D971B6291E1F484400F726EF /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		D971B67F1E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficTransferCollectionViewCell.swift; sourceTree = "<group>"; };
 		D971B6801E1F4AFF00F726EF /* TrafficTransferCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrafficTransferCollectionViewCell.xib; sourceTree = "<group>"; };
+		D971B6ED1E2385D200F726EF /* Traffic-Transfer-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Traffic-Transfer-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D971B6EF1E2385D200F726EF /* Traffic_Transfer_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Traffic_Transfer_DemoUITests.m; sourceTree = "<group>"; };
+		D971B6F11E2385D200F726EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7C015F99DB03AC9FAA11257 /* Pods-Traffic-Transfer-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traffic-Transfer-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traffic-Transfer-Demo/Pods-Traffic-Transfer-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC85E2A32F25162140CE2C1 /* libPods-Traffic-Transfer-Demo-Swift.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D971B6EA1E2385D200F726EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +394,7 @@
 			children = (
 				D923A5E61DED67BE00EA75E9 /* Traffic-Transfer-Demo */,
 				D971B6131E1F47EE00F726EF /* Traffic-Transfer-Demo-Swift */,
+				D971B6EE1E2385D200F726EF /* Traffic-Transfer-DemoUITests */,
 				D923A5E51DED67BE00EA75E9 /* Products */,
 				D96AE6251DEE81E300E465F9 /* ScreenShots */,
 				9D17A3451D52D9E6451569B7 /* Pods */,
@@ -385,6 +407,7 @@
 			children = (
 				D923A5E41DED67BE00EA75E9 /* Traffic-Transfer-Demo.app */,
 				D971B6121E1F47EE00F726EF /* Traffic-Transfer-Demo-Swift.app */,
+				D971B6ED1E2385D200F726EF /* Traffic-Transfer-DemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -586,6 +609,15 @@
 			path = "Traffic-Transfer-Demo-Swift";
 			sourceTree = "<group>";
 		};
+		D971B6EE1E2385D200F726EF /* Traffic-Transfer-DemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D971B6EF1E2385D200F726EF /* Traffic_Transfer_DemoUITests.m */,
+				D971B6F11E2385D200F726EF /* Info.plist */,
+			);
+			path = "Traffic-Transfer-DemoUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,6 +661,24 @@
 			productReference = D971B6121E1F47EE00F726EF /* Traffic-Transfer-Demo-Swift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D971B6EC1E2385D200F726EF /* Traffic-Transfer-DemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D971B6F61E2385D200F726EF /* Build configuration list for PBXNativeTarget "Traffic-Transfer-DemoUITests" */;
+			buildPhases = (
+				D971B6E91E2385D200F726EF /* Sources */,
+				D971B6EA1E2385D200F726EF /* Frameworks */,
+				D971B6EB1E2385D200F726EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D971B6F31E2385D200F726EF /* PBXTargetDependency */,
+			);
+			name = "Traffic-Transfer-DemoUITests";
+			productName = "Traffic-Transfer-DemoUITests";
+			productReference = D971B6ED1E2385D200F726EF /* Traffic-Transfer-DemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -649,6 +699,12 @@
 						DevelopmentTeam = YMJ372W38W;
 						ProvisioningStyle = Manual;
 					};
+					D971B6EC1E2385D200F726EF = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = YMJ372W38W;
+						ProvisioningStyle = Manual;
+						TestTargetID = D923A5E31DED67BE00EA75E9;
+					};
 				};
 			};
 			buildConfigurationList = D923A5DF1DED67BE00EA75E9 /* Build configuration list for PBXProject "Traffic-Transfer-Demo" */;
@@ -666,6 +722,7 @@
 			targets = (
 				D923A5E31DED67BE00EA75E9 /* Traffic-Transfer-Demo */,
 				D971B6111E1F47EE00F726EF /* Traffic-Transfer-Demo-Swift */,
+				D971B6EC1E2385D200F726EF /* Traffic-Transfer-DemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -850,6 +907,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D971B6EB1E2385D200F726EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -981,7 +1045,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D971B6E91E2385D200F726EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D971B6F01E2385D200F726EF /* Traffic_Transfer_DemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D971B6F31E2385D200F726EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D923A5E31DED67BE00EA75E9 /* Traffic-Transfer-Demo */;
+			targetProxy = D971B6F21E2385D200F726EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D923A5F01DED67BE00EA75E9 /* Main.storyboard */ = {
@@ -1182,6 +1262,39 @@
 			};
 			name = Release;
 		};
+		D971B6F41E2385D200F726EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				INFOPLIST_FILE = "Traffic-Transfer-DemoUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.Traffic-Transfer-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8014ae4e-33b6-4937-87e3-3725a2aad4f7";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
+				TEST_TARGET_NAME = "Traffic-Transfer-Demo";
+			};
+			name = Debug;
+		};
+		D971B6F51E2385D200F726EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				INFOPLIST_FILE = "Traffic-Transfer-DemoUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.Traffic-Transfer-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8014ae4e-33b6-4937-87e3-3725a2aad4f7";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
+				TEST_TARGET_NAME = "Traffic-Transfer-Demo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1211,6 +1324,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D971B6F61E2385D200F726EF /* Build configuration list for PBXNativeTarget "Traffic-Transfer-DemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D971B6F41E2385D200F726EF /* Debug */,
+				D971B6F51E2385D200F726EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

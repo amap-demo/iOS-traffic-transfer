@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D971B6EC1E2385D200F726EF"
+               BuildableName = "Traffic-Transfer-DemoUITests.xctest"
+               BlueprintName = "Traffic-Transfer-DemoUITests"
+               ReferencedContainer = "container:Traffic-Transfer-Demo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
