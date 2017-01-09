@@ -60,7 +60,7 @@
     
     [app.buttons[@"\u91cd\u65b0\u89c4\u5212"] tap];
     
-    sleep(2);
+    sleep(3);
     
     [staticText tap];
     
