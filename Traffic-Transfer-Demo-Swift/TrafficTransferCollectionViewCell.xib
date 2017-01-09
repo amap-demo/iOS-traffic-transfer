@@ -11,35 +11,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrafficTransferCollectionViewCellIdentifier" id="gTV-IL-0wX" customClass="TrafficTransferCollectionViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrafficTransferCollectionViewCellIdentifier" id="PeN-pE-wtS" customClass="TrafficTransferCollectionViewCell" customModule="Traffic_Transfer_Demo_Swift">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公交线路公交线路公交线路公交线路公交线路公交线路公交线路" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxY-yH-bv3">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公交线路公交线路公交线路公交线路公交线路公交线路公交线路" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMe-5p-9uE">
                         <rect key="frame" x="10" y="8" width="300" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="34" id="vOB-UP-psk"/>
+                            <constraint firstAttribute="height" constant="34" id="4tW-2x-qsY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hre-wY-JKj">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkc-v9-Mpy">
                         <rect key="frame" x="10" y="47" width="25" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="kxT-6L-yfq"/>
+                            <constraint firstAttribute="height" constant="16" id="rQk-D1-ruk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-7Y-FOu">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZE-hr-lcK">
                         <rect key="frame" x="45" y="39" width="57.5" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="llj-Pg-YdU"/>
+                            <constraint firstAttribute="height" constant="32" id="9g0-W0-pBg"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,17 +48,17 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="TxY-yH-bv3" secondAttribute="trailing" constant="10" id="D7C-XT-x50"/>
-                <constraint firstItem="TxY-yH-bv3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="JFE-4t-5xo"/>
-                <constraint firstItem="TxY-yH-bv3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="QSX-4G-pWk"/>
-                <constraint firstItem="EbQ-7Y-FOu" firstAttribute="leading" secondItem="Hre-wY-JKj" secondAttribute="trailing" constant="10" id="ZJg-kV-NEx"/>
-                <constraint firstItem="Hre-wY-JKj" firstAttribute="top" secondItem="TxY-yH-bv3" secondAttribute="bottom" constant="5" id="lNZ-pz-Peo"/>
-                <constraint firstItem="Hre-wY-JKj" firstAttribute="leading" secondItem="TxY-yH-bv3" secondAttribute="leading" id="oSm-Yp-mwT"/>
-                <constraint firstItem="EbQ-7Y-FOu" firstAttribute="bottom" secondItem="Hre-wY-JKj" secondAttribute="bottom" constant="8" id="tUt-qh-E2m"/>
+                <constraint firstItem="OMe-5p-9uE" firstAttribute="leading" secondItem="PeN-pE-wtS" secondAttribute="leading" constant="10" id="IoF-JL-k08"/>
+                <constraint firstItem="Qkc-v9-Mpy" firstAttribute="leading" secondItem="OMe-5p-9uE" secondAttribute="leading" id="esE-NT-qtL"/>
+                <constraint firstItem="FZE-hr-lcK" firstAttribute="bottom" secondItem="Qkc-v9-Mpy" secondAttribute="bottom" constant="8" id="mgi-99-qpf"/>
+                <constraint firstItem="OMe-5p-9uE" firstAttribute="top" secondItem="PeN-pE-wtS" secondAttribute="top" constant="8" id="mn2-R2-NOm"/>
+                <constraint firstItem="FZE-hr-lcK" firstAttribute="leading" secondItem="Qkc-v9-Mpy" secondAttribute="trailing" constant="10" id="neS-tL-4Na"/>
+                <constraint firstAttribute="trailing" secondItem="OMe-5p-9uE" secondAttribute="trailing" constant="10" id="p68-aK-t1H"/>
+                <constraint firstItem="Qkc-v9-Mpy" firstAttribute="top" secondItem="OMe-5p-9uE" secondAttribute="bottom" constant="5" id="v4X-0I-cYH"/>
             </constraints>
             <connections>
-                <outlet property="otherInfoLabel" destination="Hre-wY-JKj" id="Zst-RG-Vm1"/>
-                <outlet property="trafficTransferInfoLabel" destination="TxY-yH-bv3" id="GVM-gl-PRw"/>
+                <outlet property="otherInfoLabel" destination="Qkc-v9-Mpy" id="xma-Hs-FLt"/>
+                <outlet property="trafficTransferInfoLabel" destination="OMe-5p-9uE" id="J1u-Vx-nLc"/>
             </connections>
         </collectionViewCell>
     </objects>
