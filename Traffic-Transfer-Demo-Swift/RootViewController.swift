@@ -144,7 +144,7 @@ class RootViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegat
     
     //当路径规划搜索请求发生错误时，会调用代理的此方法
     func aMapSearchRequest(_ request: Any, didFailWithError error: Error?) {
-        print("Error: \(error)")
+        print("Error: \(String(describing: error))")
         self.resetSearchResultAndXibViewsToDefault()
     }
     
