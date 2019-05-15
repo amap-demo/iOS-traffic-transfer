@@ -66,6 +66,7 @@ class RootViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegat
         self.mapView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         self.mapView.delegate = self
         self.view.addSubview(self.mapView)
+        self.view.sendSubview(toBack: self.mapView)
         self.search = AMapSearchAPI()
         self.search.delegate = self
     }
